@@ -38,14 +38,16 @@
 						<div class="col-lg-12">
 							<div class="btn-toolbar">
 								<div class="btn-group">
+									<a href="{% url 'deletecompleted' %}">
 									<button type="button" class="btn btn-warning">
 										<i class="glyphicon glyphicon-trash"></i> DELETE COMPLETED
-									</button>
+									</button></a>
 								</div>
 								<div class="btn-group">
+									<a href="{% url 'deleteall' %}">
 									<button type="button" class="btn btn-danger">
 										<i class="glyphicon glyphicon-trash"></i> DELETE ALL
-									</button>
+									</button></a>
 								</div>
 							</div>
 						</div>
@@ -56,7 +58,7 @@
 							{% if i.completed %}
                         <li class="list-group-item todo-completed">{{i.text}}</li>
 						{% else %}
-						<a href="#"><li class="list-group-item">{{i.text}}</li></a>
+						<a href="{% url 'completed' i.id %}"><li class="list-group-item">{{i.text}}</li></a>
 						{% endif %}
                         {% endfor %}
 
